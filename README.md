@@ -65,6 +65,9 @@ SaleTrack/
 ├── Views/         # Pages (Login, Dashboard, Sales, Reports)
 ├── Services/      # API, Auth, Sync, Storage services
 ├── Helpers/       # Utilities & extensions
+├── State/         # App State
+├── Constant/      # Environmental Variables and others
+├── Conveters/     # Value Type Converters
 ├── Resources/     # Styles, colors, images
 ├── AppShell.xaml  # Shell navigation
 └── App.xaml       # App startup & theming
