@@ -57,16 +57,19 @@ The app supports secure authentication, offline-first sales recording, report ge
 
 ## 📂 Project Structure
 
+```text
 SaleTrack/
 │
-├── Models/ # Data models (Sale, User, Reports)
-├── ViewModels/ # MVVM ViewModels
-├── Views/ # Pages (Login, Dashboard, Sales, Reports)
-├── Services/ # API, Auth, Sync, Storage services
-├── Helpers/ # Utilities & extensions
-├── Resources/ # Styles, colors, images
-├── AppShell.xaml # Shell navigation
-└── App.xaml # App startup & theming
+├── Models/        # Data models (Sale, User, Reports)
+├── ViewModels/    # MVVM ViewModels
+├── Views/         # Pages (Login, Dashboard, Sales, Reports)
+├── Services/      # API, Auth, Sync, Storage services
+├── Helpers/       # Utilities & extensions
+├── Resources/     # Styles, colors, images
+├── AppShell.xaml  # Shell navigation
+└── App.xaml       # App startup & theming
+```
+
 
 
 ---
