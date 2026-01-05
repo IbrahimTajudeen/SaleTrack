@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaleTrack.Views.Components"
+             xmlns:converter="clr-namespace:SaleTrack.Converters"
+             x:Class="SaleTrack.Views.AddSalePage"
+             Title="New Sale">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:DecimalConverter x:Key="DecimalConverter" />
+            <converter:IntConverter x:Key="IntConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid>
+            <Frame>
+                <VerticalStackLayout Padding="16" Spacing="14">
+                    <Grid ColumnDefinitions="*,*,*" HorizontalOptions="FillAndExpand" >
+                        <Label Text="Create Sale"
+                           FontSize="22"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+
+                        <Button Text="x" 
+                            Command="{Binding CloseCommand}"
+                            Grid.Column="2"
+                            HorizontalOptions="End" 
+                            TextColor="White" 
+                            BackgroundColor="PaleVioletRed" />
+                    </Grid>
+
+                    <DatePicker Date="{Binding NewSale.SaleDate}" HorizontalOptions="CenterAndExpand" BackgroundColor="SlateBlue" TextColor="Black" />
+
+                    <Entry Placeholder="Item Name"
+                            Text="{Binding NewSale.ItemName}" />
+
+                    <Entry Placeholder="Price per Item"
+                           Keyboard="Numeric"
+                           Text="{Binding NewSale.PricePerItem, Mode=TwoWay, Converter={StaticResource DecimalConverter}}" />
+
+                    <Entry Placeholder="Quantity"
+                           Keyboard="Numeric"
+                           Text="{Binding NewSale.Quantity, Mode=TwoWay, Converter={StaticResource IntConverter}}" />
+
+
+                    <Editor Placeholder="Notes"
+                            AutoSize="TextChanges"
+                            Text="{Binding NewSale.Notes}" />
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="25" HorizontalOptions="FillAndExpand">
+                        <Button Text="+ Add to Sale Cart"
+                                Command="{Binding AddSaleCommand}"
+                                BackgroundColor="CadetBlue"
+                                TextColor="White"
+                                Grid.Column="0"
+                                CornerRadius="10" />
+
+                        <Button Text="Save Sale"
+                                Command="{Binding SaveSaleCommand}"
+                                BackgroundColor="SlateBlue"
+                                TextColor="White"
+                                Grid.Column="1"
+                                CornerRadius="10"
+                                />
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Frame>
+            <local:Loading IsVisible="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></local:Loading>
+        </Grid>
+    </ScrollView>
+</ContentPage>

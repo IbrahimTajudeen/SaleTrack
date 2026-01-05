@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaleTrack.Views.Components"
+             x:Class="SaleTrack.Views.SalesPage"
+             Title="Sales">
+    <Grid Padding="0">
+        <VerticalStackLayout Padding="16" Spacing="14" >
+            <Grid ColumnDefinitions="*,*,*" HorizontalOptions="FillAndExpand" >
+                <Label Text="Sales List"
+                    FontSize="22"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center" />
+                <Button Text="Add Sale" Grid.Column="2" HorizontalOptions="End" Command="{Binding AddSaleCommand}" />
+            </Grid>
+            <Frame Padding="10" >
+                <VerticalStackLayout>
+                    
+                    <CollectionView ItemsSource="{Binding Sales}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding ItemName}" FontAttributes="Bold"/>
+                                    <Label Text="{Binding TotalAmount, StringFormat='₦{0}'}"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+        <local:Loading IsVisible="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></local:Loading>
+    </Grid>
+
+</ContentPage>

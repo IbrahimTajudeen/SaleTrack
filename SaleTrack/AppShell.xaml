@@ -4,12 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SaleTrack"
+    xmlns:views="clr-namespace:SaleTrack.Views"
     Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
     Title="SaleTrack">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellContent Route="login" ContentTemplate="{DataTemplate views:LoginPage}" />
+
+    <TabBar Route="main" >
+        <Tab Title="Dashboard" Icon="dotnet_bot.png">
+            <ShellContent Route="dashboard" Title="Dashboard"
+              ContentTemplate="{DataTemplate views:DashboardPage}" />
+        </Tab>
+        <Tab Title="Sales" Icon="dotnet_bot.png">
+            <ShellContent Route="sales" ContentTemplate="{DataTemplate views:SalesPage}" />
+        </Tab>
+        <Tab Title="Reports" Icon="dotnet_bot.png">
+            <ShellContent Route="reports"
+              ContentTemplate="{DataTemplate views:ReportsPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

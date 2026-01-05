@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SaleTrack.Views.Components"
+             x:Class="SaleTrack.Views.LoginPage"
+             Title="LoginPage" BackgroundColor="#f0f2f5" >
+    <Grid HorizontalOptions="Center" VerticalOptions="Center" Padding="0">
+        <Frame 
+            HasShadow="True" 
+            WidthRequest="300" 
+            BackgroundColor="White" 
+            CornerRadius="10" 
+            BorderColor="Transparent"
+            VerticalOptions="Center"  
+            HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="10">
+                <Frame CornerRadius="100" BackgroundColor="Bisque" BorderColor="LightGrey" HasShadow="True" HeightRequest="100" WidthRequest="100">
+                    
+                </Frame>
+                <Entry Placeholder="Email" TextColor="Black" BackgroundColor="#f0f2f5" Text="{Binding Email}" />
+                <Entry Placeholder="Password"  TextColor="Black" BackgroundColor="#f0f2f5" IsPassword="True" Text="{Binding Password}" />
+                <Button Text="Login" BackgroundColor="SlateBlue" Command="{Binding LoginCommand}">
+                    
+                </Button>
+                
+                <Label TextColor="#505050" HorizontalTextAlignment="Center" Margin="0,10,0,5" Text="New Here? Create Account" />
+            </VerticalStackLayout>
+        </Frame>
+        <Label HorizontalTextAlignment="Center" VerticalOptions="End">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Sale Track&#10;" />
+                    <Span Text="From&#10;NexoTechnology"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <local:Loading IsVisible="{Binding IsBusy}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></local:Loading>
+    </Grid>
+</ContentPage>
